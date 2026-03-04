@@ -198,7 +198,7 @@ Full [API documentation](https://namefyi.com/developers/) at namefyi.com.
 
 ## FYIPedia Developer Tools
 
-Part of the [FYIPedia](https://fyipedia.com/) open-source developer tools ecosystem:
+Part of the [FYIPedia](https://github.com/fyipedia) open-source developer tools ecosystem:
 
 | Package | Description |
 |---------|-------------|
