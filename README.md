@@ -12,6 +12,26 @@ Pure Python naming engine for developers. [Korean romanization](https://namefyi.
   <img src="demo.gif" alt="namefyi CLI demo" width="800">
 </p>
 
+## Table of Contents
+
+- [Install](#install)
+- [Quick Start](#quick-start)
+- [Korean Romanization](#korean-romanization)
+- [Five Elements in Korean Naming](#five-elements-오행-in-korean-naming)
+- [Utilities](#utilities)
+- [Command-Line Interface](#command-line-interface)
+- [MCP Server (Claude, Cursor, Windsurf)](#mcp-server-claude-cursor-windsurf)
+- [REST API Client](#rest-api-client)
+- [API Reference](#api-reference)
+  - [Korean Romanization](#korean-romanization-1)
+  - [CJK Stroke Count](#cjk-stroke-count)
+  - [Five Elements](#five-elements-오행)
+  - [Formatting & Slugs](#formatting--slugs)
+- [Features](#features)
+- [Learn More About Names](#learn-more-about-names)
+- [FYIPedia Developer Tools](#fyipedia-developer-tools)
+- [License](#license)
+
 ## Install
 
 ```bash
@@ -200,29 +220,32 @@ Full [API documentation](https://namefyi.com/developers/) at namefyi.com.
 - **Zero dependencies** -- pure Python standard library only
 - **Type-safe** -- full type annotations, `py.typed` marker (PEP 561)
 
+## Learn More About Names
+
+- **Tools**: [Name Search](https://namefyi.com/search/) · [Romanization Tool](https://namefyi.com/tools/romanize/)
+- **Browse**: [Korean Names](https://namefyi.com/korean/) · [Cultures](https://namefyi.com/culture/)
+- **Guides**: [Glossary](https://namefyi.com/glossary/) · [Blog](https://namefyi.com/blog/)
+- **API**: [REST API Docs](https://namefyi.com/developers/) · [OpenAPI Spec](https://namefyi.com/api/openapi.json)
+
 ## FYIPedia Developer Tools
 
-Part of the [FYIPedia](https://github.com/fyipedia) open-source developer tools ecosystem:
+Part of the [FYIPedia](https://fyipedia.com) open-source developer tools ecosystem.
 
-| Package | Description |
-|---------|-------------|
-| [colorfyi](https://pypi.org/project/colorfyi/) | Color conversion, [WCAG contrast](https://colorfyi.com/tools/contrast-checker/), harmonies, shades -- [colorfyi.com](https://colorfyi.com/) |
-| [emojifyi](https://pypi.org/project/emojifyi/) | Emoji lookup, search, encoding -- [emojifyi.com](https://emojifyi.com/) |
-| [symbolfyi](https://pypi.org/project/symbolfyi/) | Symbol encoding, Unicode properties -- [symbolfyi.com](https://symbolfyi.com/) |
-| [unicodefyi](https://pypi.org/project/unicodefyi/) | Unicode character info, 17 encodings -- [unicodefyi.com](https://unicodefyi.com/) |
-| [fontfyi](https://pypi.org/project/fontfyi/) | Google Fonts metadata, CSS, pairings -- [fontfyi.com](https://fontfyi.com/) |
-| [distancefyi](https://pypi.org/project/distancefyi/) | Haversine distance, bearing, travel times -- [distancefyi.com](https://distancefyi.com/) |
-| [timefyi](https://pypi.org/project/timefyi/) | Timezone ops, time differences, business hours -- [timefyi.com](https://timefyi.com/) |
-| **[namefyi](https://pypi.org/project/namefyi/)** | **Korean romanization, Five Elements -- [namefyi.com](https://namefyi.com/)** |
-| [unitfyi](https://pypi.org/project/unitfyi/) | Unit conversion, 200 units, 20 categories -- [unitfyi.com](https://unitfyi.com/) |
-| [holidayfyi](https://pypi.org/project/holidayfyi/) | Holiday dates, Easter calculation -- [holidayfyi.com](https://holidayfyi.com/) |
-
-## Links
-
-- [Korean Names Explorer](https://namefyi.com/culture/korean/) -- Surnames, characters, meanings
-- [REST API Documentation](https://namefyi.com/developers/) -- Free API
-- [npm Package](https://www.npmjs.com/package/namefyi) -- TypeScript version
-- [Source Code](https://github.com/fyipedia/namefyi) -- MIT licensed
+| Package | PyPI | npm | Description |
+|---------|------|-----|-------------|
+| colorfyi | [PyPI](https://pypi.org/project/colorfyi/) | [npm](https://www.npmjs.com/package/@fyipedia/colorfyi) | Color conversion, WCAG contrast, harmonies -- [colorfyi.com](https://colorfyi.com/) |
+| emojifyi | [PyPI](https://pypi.org/project/emojifyi/) | [npm](https://www.npmjs.com/package/emojifyi) | Emoji encoding & metadata for 3,781 emojis -- [emojifyi.com](https://emojifyi.com/) |
+| symbolfyi | [PyPI](https://pypi.org/project/symbolfyi/) | [npm](https://www.npmjs.com/package/symbolfyi) | Symbol encoding in 11 formats -- [symbolfyi.com](https://symbolfyi.com/) |
+| unicodefyi | [PyPI](https://pypi.org/project/unicodefyi/) | [npm](https://www.npmjs.com/package/unicodefyi) | Unicode lookup with 17 encodings -- [unicodefyi.com](https://unicodefyi.com/) |
+| fontfyi | [PyPI](https://pypi.org/project/fontfyi/) | [npm](https://www.npmjs.com/package/fontfyi) | Google Fonts metadata & CSS -- [fontfyi.com](https://fontfyi.com/) |
+| distancefyi | [PyPI](https://pypi.org/project/distancefyi/) | [npm](https://www.npmjs.com/package/distancefyi) | Haversine distance & travel times -- [distancefyi.com](https://distancefyi.com/) |
+| timefyi | [PyPI](https://pypi.org/project/timefyi/) | [npm](https://www.npmjs.com/package/timefyi) | Timezone ops & business hours -- [timefyi.com](https://timefyi.com/) |
+| **namefyi** | [PyPI](https://pypi.org/project/namefyi/) | [npm](https://www.npmjs.com/package/namefyi) | Korean romanization & Five Elements -- [namefyi.com](https://namefyi.com/) |
+| unitfyi | [PyPI](https://pypi.org/project/unitfyi/) | [npm](https://www.npmjs.com/package/unitfyi) | Unit conversion, 220 units -- [unitfyi.com](https://unitfyi.com/) |
+| holidayfyi | [PyPI](https://pypi.org/project/holidayfyi/) | [npm](https://www.npmjs.com/package/holidayfyi) | Holiday dates & Easter calculation -- [holidayfyi.com](https://holidayfyi.com/) |
+| cocktailfyi | [PyPI](https://pypi.org/project/cocktailfyi/) | -- | Cocktail ABV, calories, flavor -- [cocktailfyi.com](https://cocktailfyi.com/) |
+| fyipedia | [PyPI](https://pypi.org/project/fyipedia/) | -- | Unified CLI: `fyi color info FF6B35` -- [fyipedia.com](https://fyipedia.com/) |
+| fyipedia-mcp | [PyPI](https://pypi.org/project/fyipedia-mcp/) | -- | Unified MCP hub for AI assistants -- [fyipedia.com](https://fyipedia.com/) |
 
 ## License
 
