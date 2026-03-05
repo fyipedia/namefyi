@@ -18,6 +18,7 @@ Pure Python naming engine for developers. [Korean romanization](https://namefyi.
 - [Quick Start](#quick-start)
 - [Korean Romanization](#korean-romanization)
 - [Five Elements in Korean Naming](#five-elements-오행-in-korean-naming)
+- [CJK Stroke Count](#cjk-stroke-count)
 - [Utilities](#utilities)
 - [Command-Line Interface](#command-line-interface)
 - [MCP Server (Claude, Cursor, Windsurf)](#mcp-server-claude-cursor-windsurf)
@@ -74,17 +75,29 @@ medial   = (syllable_index // 28) % 21    # 21 possible medials
 final    = syllable_index % 28            # 28 possible finals (0 = none)
 ```
 
+| Hangul | Revised Romanization | McCune-Reischauer | Conventional |
+|--------|---------------------|-------------------|-------------|
+| 김 | gim | kim | Kim |
+| 이 | i | yi/i | Lee |
+| 박 | bak | pak | Park |
+| 서울 | seoul | soul | Seoul |
+| 부산 | busan | pusan | Busan |
+| 한글 | hangeul | han'gul | Hangul |
+| 대한민국 | daehanminguk | taehanmin'guk | -- |
+
 ```python
 from namefyi import romanize_korean
 
-# Decomposition and romanization happen automatically
-romanize_korean("한글")     # 'hangeul'
-romanize_korean("서울")     # 'seoul'
-romanize_korean("부산")     # 'busan'
-romanize_korean("박지성")   # 'bakjiseong'
+# Hangul decomposition and Revised Romanization applied automatically
+romanize_korean("한글")     # 'hangeul' — the Korean writing system
+romanize_korean("서울")     # 'seoul'   — capital of South Korea
+romanize_korean("부산")     # 'busan'   — second-largest city
+romanize_korean("박지성")   # 'bakjiseong' — Korean name romanization
 ```
 
 In practice, Korean surnames have well-established conventional romanizations (Kim, Lee, Park) that differ from the strict Revised Romanization rules (Gim, I, Bak). The `namefyi` engine applies the standard algorithmic rules; conventional surname spellings are handled at the application level.
+
+Learn more: [Korean Names](https://namefyi.com/culture/korean/) · [Romanization Tool](https://namefyi.com/tools/romanize/) · [Name Search](https://namefyi.com/search/)
 
 ## Five Elements (오행) in Korean Naming
 
@@ -96,33 +109,74 @@ Wood feeds Fire, Fire creates Earth (ash), Earth bears Metal, Metal collects Wat
 **Sanggeuk (상극, 相剋) -- the overcoming cycle:**
 Wood parts Earth, Earth absorbs Water, Water quenches Fire, Fire melts Metal, Metal chops Wood.
 
+| Element | Hanja | Korean | Stroke Count | Generates | Overcomes |
+|---------|-------|--------|-------------|-----------|-----------|
+| Wood | 木 | 목 (mok) | 1--2 | Fire | Earth |
+| Fire | 火 | 화 (hwa) | 3--4 | Earth | Metal |
+| Earth | 土 | 토 (to) | 5--6 | Metal | Water |
+| Metal | 金 | 금 (geum) | 7--8 | Water | Wood |
+| Water | 水 | 수 (su) | 9--10 | Wood | Fire |
+
 ```python
 from namefyi import five_elements_for_strokes, check_element_compatibility, get_stroke_count
 
-# Stroke count determines element (1-2: Wood, 3-4: Fire, 5-6: Earth, 7-8: Metal, 9-10: Water)
-five_elements_for_strokes(1)    # '木' (Wood)
-five_elements_for_strokes(5)    # '土' (Earth)
+# Map stroke count to Five Elements -- the last digit determines the element
+five_elements_for_strokes(1)    # '木' (Wood) — 1-2 strokes
+five_elements_for_strokes(5)    # '土' (Earth) — 5-6 strokes
 
-# Check compatibility between elements
+# Check element compatibility using the generative/overcoming cycles
 check_element_compatibility("水", "木")  # 'compatible' -- Water nourishes Wood (상생)
 check_element_compatibility("水", "火")  # 'incompatible' -- Water quenches Fire (상극)
 
-# CJK character stroke count
+# CJK stroke count lookup for Hanja characters
 get_stroke_count("金")   # stroke count for the character
 ```
 
 In a well-formed Korean name, the elements of the three characters (surname + given name) should follow the generative cycle (상생), creating a harmonious flow of energy. This practice remains culturally significant and is still consulted by many Korean families when naming children.
+
+Learn more: [Five Elements (오행)](https://namefyi.com/ohaeng/) · [Korean Names](https://namefyi.com/) · [Glossary](https://namefyi.com/glossary/)
+
+## CJK Stroke Count
+
+Stroke count is fundamental to CJK (Chinese, Japanese, Korean) character systems. In Korean naming tradition, the stroke count of each Hanja character determines its Five Element, which drives compatibility analysis. The `get_stroke_count` function uses the Unicode CJK Unified Ideographs block (U+4E00--U+9FFF) with a built-in stroke count database covering over 20,000 characters.
+
+| Character | Meaning | Strokes | Five Element |
+|-----------|---------|---------|-------------|
+| 一 | one | 1 | Wood (木) |
+| 人 | person | 2 | Wood (木) |
+| 大 | big | 3 | Fire (火) |
+| 天 | heaven | 4 | Fire (火) |
+| 民 | people | 5 | Earth (土) |
+| 光 | light | 6 | Earth (土) |
+| 秀 | excellent | 7 | Metal (金) |
+| 金 | gold/metal | 8 | Metal (金) |
+| 美 | beauty | 9 | Water (水) |
+| 真 | truth | 10 | Water (水) |
+
+```python
+from namefyi import get_stroke_count, five_elements_for_strokes
+
+# Look up stroke count for any CJK character
+strokes = get_stroke_count("秀")   # 7 strokes
+element = five_elements_for_strokes(strokes)  # '金' (Metal)
+
+# Stroke counts drive Five Element compatibility in Korean naming
+strokes_kim = get_stroke_count("金")   # surname character
+strokes_min = get_stroke_count("民")   # given name first character
+```
+
+Learn more: [CJK Stroke Lookup](https://namefyi.com/stroke/) · [Five Elements (오행)](https://namefyi.com/ohaeng/) · [Character Meanings](https://namefyi.com/character/)
 
 ## Utilities
 
 ```python
 from namefyi import format_population, surname_slug, character_slug
 
-# Population formatting
+# Population formatting for demographic data
 format_population(10_345_678)    # '10.3M'
 format_population(856_000)       # '856K'
 
-# URL slug generation
+# URL slug generation for Korean name reference pages
 surname_slug("김")    # URL-safe slug for surname pages
 character_slug("秀")  # URL-safe slug for character pages
 ```
