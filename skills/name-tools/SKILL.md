@@ -44,6 +44,10 @@ Add to your `claude_desktop_config.json`:
 - Checking name compatibility based on traditional East Asian philosophy
 - Looking up Korean surname statistics and rankings
 
+## Demo
+
+![NameFYI CLI Demo](https://raw.githubusercontent.com/fyipedia/namefyi/main/demo.gif)
+
 ## Links
 
 - [Name Explorer](https://namefyi.com/) -- Korean name analysis tools
