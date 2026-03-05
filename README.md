@@ -8,6 +8,10 @@ Pure Python naming engine for developers. [Korean romanization](https://namefyi.
 
 > **Explore Korean names and meanings at [namefyi.com](https://namefyi.com/)** -- surname histories, character meanings, naming traditions, and romanization tools.
 
+<p align="center">
+  <img src="demo.gif" alt="namefyi CLI demo" width="800">
+</p>
+
 ## Install
 
 ```bash
