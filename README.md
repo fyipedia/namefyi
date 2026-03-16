@@ -1,6 +1,6 @@
 # namefyi
 
-[![PyPI](https://img.shields.io/pypi/v/namefyi)](https://pypi.org/project/namefyi/)
+[![PyPI version](https://agentgif.com/badge/pypi/namefyi/version.svg)](https://pypi.org/project/namefyi/)
 [![Python](https://img.shields.io/pypi/pyversions/namefyi)](https://pypi.org/project/namefyi/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
