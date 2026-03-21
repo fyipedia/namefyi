@@ -97,9 +97,7 @@ romanize_korean("박지성")   # 'bakjiseong' — Korean name romanization
 
 In practice, Korean surnames have well-established conventional romanizations (Kim, Lee, Park) that differ from the strict Revised Romanization rules (Gim, I, Bak). The `namefyi` engine applies the standard algorithmic rules; conventional surname spellings are handled at the application level.
 
-Learn more: [Korean Names](https://namefyi.com/culture/korean/) · [Romanization Tool](https://namefyi.com/tools/romanize/) · [Name Search](https://namefyi.com/search/)
-
-## Five Elements (오행) in Korean Naming
+Learn more: [Korean Names](https://namefyi.com/culture/korean/) · ## Five Elements (오행) in Korean Naming
 
 Traditional Korean naming practice uses the Five Elements cycle (오행, 五行) based on the stroke count of each Hanja character. The five elements -- Wood (木), Fire (火), Earth (土), Metal (金), Water (水) -- follow two fundamental cycles:
 
@@ -134,7 +132,7 @@ get_stroke_count("金")   # stroke count for the character
 
 In a well-formed Korean name, the elements of the three characters (surname + given name) should follow the generative cycle (상생), creating a harmonious flow of energy. This practice remains culturally significant and is still consulted by many Korean families when naming children.
 
-Learn more: [Five Elements (오행)](https://namefyi.com/ohaeng/) · [Korean Names](https://namefyi.com/) · [Glossary](https://namefyi.com/glossary/)
+Learn more: [Korean Names](https://namefyi.com/) · [Glossary](https://namefyi.com/glossary/)
 
 ## CJK Stroke Count
 
@@ -165,7 +163,7 @@ strokes_kim = get_stroke_count("金")   # surname character
 strokes_min = get_stroke_count("民")   # given name first character
 ```
 
-Learn more: [CJK Stroke Lookup](https://namefyi.com/stroke/) · [Five Elements (오행)](https://namefyi.com/ohaeng/) · [Character Meanings](https://namefyi.com/character/)
+Learn more: [Character Meanings](https://namefyi.com/character/)
 
 ## Utilities
 
@@ -276,10 +274,8 @@ Full [API documentation](https://namefyi.com/developers/) at namefyi.com.
 
 ## Learn More About Names
 
-- **Tools**: [Name Search](https://namefyi.com/search/) · [Romanization Tool](https://namefyi.com/tools/romanize/)
-- **Browse**: [Korean Names](https://namefyi.com/korean/) · [Cultures](https://namefyi.com/culture/)
-- **Guides**: [Glossary](https://namefyi.com/glossary/) · [Blog](https://namefyi.com/blog/)
-- **API**: [REST API Docs](https://namefyi.com/developers/) · [OpenAPI Spec](https://namefyi.com/api/openapi.json)
+- **Tools**: - **Browse**: [Cultures](https://namefyi.com/culture/)
+- **Guides**: [Glossary](https://namefyi.com/glossary/) · - **API**: [REST API Docs](https://namefyi.com/developers/) · [OpenAPI Spec](https://namefyi.com/api/openapi.json)
 
 ## Utility FYI Family
 
